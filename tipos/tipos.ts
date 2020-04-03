@@ -21,4 +21,23 @@ console.table(arrayNames)
 // tuplas
 
 let address: [string, number, string] = ['Av principal', 99, 'Guarulhos']
-console.log(address)
+console.table(address)
+
+// enums
+
+enum Color {
+  Gray,
+  Green,
+  Yellow
+}
+
+let myColor: Color = Color.Green
+console.log(myColor)
+
+// any
+
+let car: any = 'BMW'
+console.log(car)
+
+car = { name: 'BMW', year: '2019'}
+console.log(car)
