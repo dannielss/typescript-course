@@ -34,3 +34,9 @@ imprimir<{ nome: string, idade: number}>([
   { nome:'Carlos', idade: 17 },
   { nome: 'Bia', idade: 28}
 ])
+
+// Tipo Genérics
+type Echo = <T>(data: T) => T
+const chamarEcho: Echo = echoMelhorado
+
+console.log(chamarEcho<string>('Alguma coisa'))
