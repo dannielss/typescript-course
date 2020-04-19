@@ -40,3 +40,16 @@ type Echo = <T>(data: T) => T
 const chamarEcho: Echo = echoMelhorado
 
 console.log(chamarEcho<string>('Alguma coisa'))
+
+// Class com generics
+class OperacaoBinaria {
+  constructor(public operando1: any, public operando2: any) {}
+
+  executar() {
+    return this.operando1 + this.operando2
+  }
+}
+
+console.log(new OperacaoBinaria('Bom ', 'dia').executar())
+console.log(new OperacaoBinaria(1, 2).executar())
+console.log(new OperacaoBinaria({}, {}).executar())
