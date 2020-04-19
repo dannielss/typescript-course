@@ -1,4 +1,17 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 function echo(objeto) {
     return objeto;
 }
@@ -33,12 +46,20 @@ var OperacaoBinaria = /** @class */ (function () {
         this.operando1 = operando1;
         this.operando2 = operando2;
     }
-    OperacaoBinaria.prototype.executar = function () {
-        return this.operando1 + this.operando2;
-    };
     return OperacaoBinaria;
 }());
-console.log(new OperacaoBinaria('Bom ', 'dia').executar());
-console.log(new OperacaoBinaria(1, 2).executar());
-console.log(new OperacaoBinaria({}, {}).executar());
+// console.log(new OperacaoBinaria('Bom ', 'dia').executar())
+// console.log(new OperacaoBinaria(1, 2).executar())
+// console.log(new OperacaoBinaria({}, {}).executar())
+var SomaBinaria = /** @class */ (function (_super) {
+    __extends(SomaBinaria, _super);
+    function SomaBinaria() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SomaBinaria.prototype.executar = function () {
+        return this.operando1 + this.operando2;
+    };
+    return SomaBinaria;
+}(OperacaoBinaria));
+console.log(new SomaBinaria(3, 4).executar());
 //# sourceMappingURL=generic.js.map
