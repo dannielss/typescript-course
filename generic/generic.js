@@ -110,8 +110,8 @@ var Fila = /** @class */ (function () {
     };
     return Fila;
 }());
-var fila = new Fila('Gui', 'Leo', 'Julio');
-fila.entrar('Ana');
+var fila = new Fila(1, 2, 3, 4);
+fila.entrar(4);
 fila.imprimir();
 fila.proximo();
 fila.imprimir();

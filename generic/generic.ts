@@ -81,7 +81,7 @@ console.log(new DiferencaEntreDatas(d1, d2).executar())
 
 // Challenge
 
-class Fila<T> {
+class Fila<T extends number> {
   private fila: Array<T>
 
   constructor(...args: T[]) {
@@ -107,8 +107,8 @@ class Fila<T> {
   }
 }
 
-const fila = new Fila<string>('Gui', 'Leo', 'Julio')
-fila.entrar('Ana')
+const fila = new Fila<number>(1,2 ,3 ,4)
+fila.entrar(4)
 fila.imprimir()
 fila.proximo()
 fila.imprimir()
