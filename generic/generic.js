@@ -62,4 +62,62 @@ var SomaBinaria = /** @class */ (function (_super) {
     return SomaBinaria;
 }(OperacaoBinaria));
 console.log(new SomaBinaria(3, 4).executar());
+var DiferencaEntreDatas = /** @class */ (function (_super) {
+    __extends(DiferencaEntreDatas, _super);
+    function DiferencaEntreDatas() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    DiferencaEntreDatas.prototype.getTime = function (data) {
+        var dia = data.dia, mes = data.mes, ano = data.ano;
+        return new Date(mes + "/" + dia + "/" + ano).getTime();
+    };
+    DiferencaEntreDatas.prototype.executar = function () {
+        var t1 = this.getTime(this.operando1);
+        var t2 = this.getTime(this.operando2);
+        var diferenca = Math.abs(t1 - t2);
+        var dia = 1000 * 60 * 60 * 24;
+        return Math.ceil(diferenca / dia) + " dia(s)";
+    };
+    return DiferencaEntreDatas;
+}(OperacaoBinaria));
+var d1 = new Data(1, 2, 2020);
+var d2 = new Data(5, 2, 2020);
+console.log(new DiferencaEntreDatas(d1, d2).executar());
+// Challenge
+var Fila = /** @class */ (function () {
+    function Fila() {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        this.fila = args;
+    }
+    Fila.prototype.entrar = function (elemento) {
+        this.fila.push(elemento);
+    };
+    Fila.prototype.proximo = function () {
+        if (this.fila.length >= 0 && this.fila[0]) {
+            var primeiro = this.fila[0];
+            this.fila.splice(0, 1);
+            return primeiro;
+        }
+        else {
+            return null;
+        }
+    };
+    Fila.prototype.imprimir = function () {
+        console.log(this.fila);
+    };
+    return Fila;
+}());
+var fila = new Fila('Gui', 'Leo', 'Julio');
+fila.entrar('Ana');
+fila.imprimir();
+fila.proximo();
+fila.imprimir();
+fila.proximo();
+fila.proximo();
+fila.proximo();
+fila.proximo();
+fila.imprimir();
 //# sourceMappingURL=generic.js.map
