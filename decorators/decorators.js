@@ -30,18 +30,6 @@ function decorator(a, b) {
         console.log(a + ' ' + b);
     };
 }
-// @logarClasse
-// @logarClasseSe(true)
-// @decorator('Oi', 123)
-var Eletrodomestico = /** @class */ (function () {
-    function Eletrodomestico() {
-        console.log('novo...');
-    }
-    Eletrodomestico = __decorate([
-        logarObjeto
-    ], Eletrodomestico);
-    return Eletrodomestico;
-}());
 function logarObjeto(construtor) {
     console.log('Carregado');
     return /** @class */ (function (_super) {
@@ -60,7 +48,27 @@ function logarObjeto(construtor) {
         return class_1;
     }(construtor));
 }
-new Eletrodomestico();
-new Eletrodomestico();
-new Eletrodomestico();
+// new Eletrodomestico()
+// new Eletrodomestico()
+// new Eletrodomestico()
+// @logarClasse
+// @logarClasseSe(true)
+// @decorator('Oi', 123)
+// @logarObjeto
+var Eletrodomestico = /** @class */ (function () {
+    function Eletrodomestico() {
+        console.log('novo...');
+    }
+    Eletrodomestico = __decorate([
+        imprimivel
+    ], Eletrodomestico);
+    return Eletrodomestico;
+}());
+function imprimivel(construtor) {
+    construtor.prototype.imprimir = function () {
+        console.log(this);
+    };
+}
+var eletro = new Eletrodomestico();
+eletro.imprimir && eletro.imprimir();
 //# sourceMappingURL=decorators.js.map
