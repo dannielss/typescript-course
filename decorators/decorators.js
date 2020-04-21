@@ -54,12 +54,12 @@ function logarObjeto(construtor) {
 // @logarClasse
 // @logarClasseSe(true)
 // @decorator('Oi', 123)
-// @logarObjeto
 var Eletrodomestico = /** @class */ (function () {
     function Eletrodomestico() {
         console.log('novo...');
     }
     Eletrodomestico = __decorate([
+        logarObjeto,
         imprimivel
     ], Eletrodomestico);
     return Eletrodomestico;

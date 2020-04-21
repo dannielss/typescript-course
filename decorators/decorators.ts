@@ -34,7 +34,7 @@ function logarObjeto(construtor: Construtor) {
 // @logarClasse
 // @logarClasseSe(true)
 // @decorator('Oi', 123)
-// @logarObjeto
+@logarObjeto
 @imprimivel
 class Eletrodomestico {
   constructor() {
