@@ -55,3 +55,66 @@ function imprimivel(construtor: Function) {
 const eletro = new Eletrodomestico()
 
 eletro.imprimir && eletro.imprimir()
+
+class ContaCorrente {
+  @naoNegativo
+  private saldo: number
+
+  constructor(saldo: number) {
+    this.saldo = saldo
+  }
+
+  @congelar
+  sacar(@paramInfo valor: number) {
+    if(valor <= this.saldo) {
+      this.saldo -= valor
+      return true
+    }else {
+      return false
+    }
+  }
+
+  @congelar
+  getSaldo() {
+    return this.saldo
+  }
+}
+
+const cc = new ContaCorrente(10000)
+cc.sacar(5000)
+cc.sacar(5000)
+console.log(cc.getSaldo())
+
+// cc.getSaldo = function() {
+//   return this['saldo'] + 7000
+// }
+
+// console.log(cc.getSaldo())
+
+function congelar(alvo: any, nomePropriedade: string, descritor: PropertyDescriptor) {
+  console.log('Alvo', alvo)
+  console.log('Nome', nomePropriedade)
+  descritor.writable = false
+}
+
+function naoNegativo(alvo: any, nomePropriedade: string) {
+  delete alvo[nomePropriedade]
+  Object.defineProperty(alvo, nomePropriedade, {
+    get: function(): any {
+      return alvo['_' + nomePropriedade]
+    },
+    set: function(valor: any): void {
+      if(valor < 0) {
+        throw new Error('Salvo Inválido!')
+      }else {
+        alvo['_'+ nomePropriedade] = valor
+      }
+    }
+  })
+}
+
+function paramInfo(alvo: any, nomeMetodo: string, indiceParam: number) {
+  console.log(`Alvo ${alvo}`)
+  console.log(`Método ${nomeMetodo}`)
+  console.log(`Índice ${indiceParam}`)
+}
