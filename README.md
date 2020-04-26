@@ -1,7 +1,10 @@
 # Curso de Typescript
 
-## Seções
-- Seção 1
-  - Tipos
+## Conteúdo abordados
+- Tipos
+- Interfaces
+- Generics
+- Decorators
+- Namaspaces
 
 > Que a força esteja com você
